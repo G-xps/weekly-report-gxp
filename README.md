@@ -18,17 +18,17 @@
 
 | 页面   | 预览                                                                                  |
 | ---- | ----------------------------------------------------------------------------------- |
-| 报告封面 | ![报告封面](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/0.报告封面.png)  |
-| 演示概览 | ![演示概览](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/1.演示概览.png)  |
-| 数据统计 | ![数据统计](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/2.数据统计.png)  |
-| 工作概览 | ![工作概览](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/3.工作概览.png)  |
-| 开发进展 | ![开发进展](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/4.开发进展.png)  |
-| 任务情况 | ![任务情况](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/5.任务情况.png)  |
-| 任务详情 | ![任务详情](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/6.任务详情.png)  |
-| 问题点  | ![问题点](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/7.问题点.png)    |
-| 技术收获 | ![技术收获](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/8.技术收获.png)  |
-| 下周计划 | ![下周计划](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/9.下周计划.png)  |
-| 下周事项 | ![下周事项](file://D:/codex-project/weekly-report-gxp/weekly-report-gxp/ui/10.下周事项.png) |
+| 报告封面 | ![报告封面](./ui/00-cover.png) |
+| 演示概览 | ![演示概览](./ui/01-agenda.png) |
+| 数据统计 | ![数据统计](./ui/02-stats.png) |
+| 工作概览 | ![工作概览](./ui/03-overview.png) |
+| 开发进展 | ![开发进展](./ui/04-development-progress.png) |
+| 任务情况 | ![任务情况](./ui/05-task-status.png) |
+| 任务详情 | ![任务详情](./ui/06-task-details.png) |
+| 问题点 | ![问题点](./ui/07-issues.png) |
+| 技术收获 | ![技术收获](./ui/08-technical-growth.png) |
+| 下周计划 | ![下周计划](./ui/09-next-week-plan.png) |
+| 下周事项 | ![下周事项](./ui/10-next-week-items.png) |
 
 ## 功能特点
 
