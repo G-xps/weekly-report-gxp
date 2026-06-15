@@ -1,0 +1,12 @@
+{
+  "members": [
+    {
+      "name": "小明",
+      "aliases": ["xiaoming", "ming@example.com", "XM", "@小明"]
+    },
+    {
+      "name": "小红",
+      "aliases": ["xiaohong", "hong@example.com", "XH", "@小红"]
+    }
+  ]
+}

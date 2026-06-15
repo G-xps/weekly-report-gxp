@@ -1,0 +1,43 @@
+{
+  "project_name": "GXP 示例项目",
+  "reporter": "小明",
+  "summary": "本周完成登录链路优化，并通过技术方案会议明确权限缓存接入方案。",
+  "problems": [
+    {
+      "title": "缓存一致性验证",
+      "description": "权限缓存引入后需要确认更新链路是否及时生效。",
+      "type": "technical",
+      "solution": "补充失效策略和异常场景测试。",
+      "owner": "小明"
+    }
+  ],
+  "growth": [
+    {
+      "category": "技术方案拆解",
+      "content": "围绕缓存接入拆解风险、行动项和验证路径。",
+      "impact": "后续开发边界更清晰。",
+      "owner": "小明"
+    }
+  ],
+  "knowledge": [
+    {
+      "title": "权限缓存接入注意点",
+      "content": "缓存收益和一致性风险需要一起评估。",
+      "resource": "",
+      "owner": "小明"
+    }
+  ],
+  "risks": [
+    {
+      "level": "medium",
+      "content": "权限缓存一致性仍需通过联调验证。",
+      "owner": "小明"
+    }
+  ],
+  "next_plans": [
+    {
+      "content": "完成 Redis 权限缓存接入并补充回归测试。",
+      "owner": "小明"
+    }
+  ]
+}
