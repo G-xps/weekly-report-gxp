@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GXP 项目周报</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="deck-shell" data-deck>
+        <div class="deck-progress" aria-hidden="true">
+            <span data-progress-bar></span>
+        </div>
+
+        <main class="slide-stage">
+            <div class="slide-track" data-slide-track>
+                <section class="slide slide-cover is-active" data-slide>
+                    <div class="cover-mark">Weekly Report</div>
+                    <div class="cover-content">
+                        <p class="kicker">项目周报</p>
+                        <h1>GXP 周报生成器</h1>
+                        <div class="cover-meta">
+                            <span><i class="fas fa-calendar-alt"></i>2026-W25</span>
+                            <span><i class="fas fa-user"></i>研发团队</span>
+                            <span><i class="fas fa-clock"></i>2026-06-15</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="slide slide-agenda" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">00 / 汇报流程</span>
+                        <h2>本次周报将按这些部分展开</h2>
+                    </div>
+                    <div class="agenda-grid">
+                        <div class="agenda-card"><span>01</span>基本信息</div>
+                        <div class="agenda-card"><span>02</span>数据统计</div>
+                        <div class="agenda-card"><span>03</span>本周概览</div>
+                        <div class="agenda-card"><span>04</span>重点成果</div>
+                        <div class="agenda-card"><span>05</span>开发进展</div>
+                        <div class="agenda-card"><span>06</span>任务完成情况</div>
+                        <div class="agenda-card"><span>07</span>会议纪要与 Action Items</div>
+                        <div class="agenda-card"><span>08</span>问题处理</div>
+                        <div class="agenda-card"><span>09</span>风险与需协调事项</div>
+                        <div class="agenda-card"><span>10</span>技术成长 / 知识分享</div>
+                        <div class="agenda-card agenda-card-wide"><span>11</span>下周计划</div>
+                    </div>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">01</span>
+                    <p class="eyebrow">Basic Information</p>
+                    <h2>基本信息</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">01 / 基本信息</span>
+                        <h2>汇报对象与周期</h2>
+                    </div>
+                    <div class="info-board">
+                        <div class="info-item">
+                            <i class="fas fa-layer-group"></i>
+                            <span>项目名称</span>
+                            <strong>GXP 周报生成器</strong>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar-week"></i>
+                            <span>报告周期</span>
+                            <strong>2026-W25</strong>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-user-check"></i>
+                            <span>汇报人</span>
+                            <strong>研发团队</strong>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-file-signature"></i>
+                            <span>报告日期</span>
+                            <strong>2026-06-15</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">02</span>
+                    <p class="eyebrow">Data Statistics</p>
+                    <h2>数据统计</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">02 / 数据统计</span>
+                        <h2>本周关键数字</h2>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card stat-card-primary">
+                            <i class="fas fa-code-commit"></i>
+                            <span>本周提交</span>
+                            <strong>18</strong>
+                        </div>
+                        <div class="stat-card stat-card-success">
+                            <i class="fas fa-users"></i>
+                            <span>参与人数</span>
+                            <strong>3</strong>
+                        </div>
+                        <div class="stat-card stat-card-warning">
+                            <i class="fas fa-check-circle"></i>
+                            <span>完成事项</span>
+                            <strong>7</strong>
+                        </div>
+                        <div class="stat-card stat-card-info">
+                            <i class="fas fa-spinner"></i>
+                            <span>进行中</span>
+                            <strong>4</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">03</span>
+                    <p class="eyebrow">Weekly Overview</p>
+                    <h2>本周概览</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">03 / 本周概览</span>
+                        <h2>工作面概览</h2>
+                    </div>
+                    <div class="overview-layout">
+                        <div class="overview-panel">
+                            <i class="fas fa-arrow-trend-up"></i>
+                            <h3>推进重点</h3>
+                            <p>围绕页面结构、汇报节奏、任务闭环和风险同步进行整理，让周报更适合投屏讲解。</p>
+                        </div>
+                        <div class="overview-metrics">
+                            <div><span>7</span>已完成</div>
+                            <div><span>4</span>推进中</div>
+                            <div><span>18</span>代码提交</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">04</span>
+                    <p class="eyebrow">Key Outcomes</p>
+                    <h2>重点成果</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">04 / 重点成果</span>
+                        <h2>已完成与可交付内容</h2>
+                    </div>
+                    <div class="item-list compact-list">
+                        <article class="report-item completed">
+                            <div class="item-topline">
+                                <span class="item-type type-feature"><i class="fas fa-star"></i>feature</span>
+                                <h3>PPT 式周报结构</h3>
+                            </div>
+                            <p>完成封面、目录、章节页和内容页的基础信息架构。</p>
+                        </article>
+                        <article class="report-item completed">
+                            <div class="item-topline">
+                                <span class="item-type type-feature"><i class="fas fa-star"></i>feature</span>
+                                <h3>横向滑动汇报体验</h3>
+                            </div>
+                            <p>支持按钮、键盘和触屏切换，顶部进度条同步当前页进度。</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">05</span>
+                    <p class="eyebrow">Development Progress</p>
+                    <h2>本周开发进展</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">05 / 开发进展</span>
+                        <h2>功能、修复与待办推进</h2>
+                    </div>
+                    <div class="item-list">
+                        <article class="report-item completed">
+                            <div class="item-topline">
+                                <span class="item-type type-feature"><i class="fas fa-star"></i>feature</span>
+                                <h3>完成汇报页面骨架</h3>
+                            </div>
+                            <p>页面已具备周报汇报所需的主要章节和演示顺序。</p>
+                            <small><i class="fas fa-user-circle"></i>负责人：前端</small>
+                        </article>
+                        <article class="report-item in_progress">
+                            <div class="item-topline">
+                                <span class="item-type type-todo"><i class="fas fa-tasks"></i>todo</span>
+                                <h3>完善后续数据接入</h3>
+                            </div>
+                            <p>后续再把静态页面接回真实周报数据和模板填充逻辑。</p>
+                            <small><i class="fas fa-user-circle"></i>负责人：后端 / 工具链</small>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">06</span>
+                    <p class="eyebrow">Task Completion</p>
+                    <h2>任务完成情况</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">06 / 任务完成情况</span>
+                        <h2>完成与进行中的任务分布</h2>
+                    </div>
+                    <div class="task-board">
+                        <div class="task-column done">
+                            <span>Completed</span>
+                            <strong>7</strong>
+                            <p>已完成事项</p>
+                        </div>
+                        <div class="task-column active">
+                            <span>In Progress</span>
+                            <strong>4</strong>
+                            <p>进行中事项</p>
+                        </div>
+                        <div class="task-column total">
+                            <span>Commits</span>
+                            <strong>18</strong>
+                            <p>代码提交量</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">07</span>
+                    <p class="eyebrow">Meetings & Action Items</p>
+                    <h2>会议纪要与 Action Items</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">07 / 会议参与与行动项</span>
+                        <h2>会议结论与后续动作</h2>
+                    </div>
+                    <div class="meeting-layout">
+                        <div class="note-panel">
+                            <h3><i class="fas fa-comments"></i>会议纪要</h3>
+                            <article class="note-item">
+                                <strong>周报页面结构评审</strong>
+                                <p>确认优先完成可演示页面，再接入真实数据。</p>
+                            </article>
+                        </div>
+                        <div class="note-panel">
+                            <h3><i class="fas fa-list-check"></i>Action Items</h3>
+                            <article class="note-item">
+                                <strong>补齐底部翻页控件</strong>
+                                <p>前端 · 已完成</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">08</span>
+                    <p class="eyebrow">Issue Handling</p>
+                    <h2>问题处理</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">08 / 问题与阻塞</span>
+                        <h2>本周问题、处理方案与经验</h2>
+                    </div>
+                    <div class="item-list">
+                        <article class="problem-item">
+                            <div class="item-topline">
+                                <span class="problem-type">process</span>
+                                <h3>长文档不适合现场汇报</h3>
+                            </div>
+                            <p>原始页面更像报告文档，汇报时难以控制节奏。</p>
+                            <small><i class="fas fa-lightbulb"></i>解决方案：改为分屏演示 deck。</small>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">09</span>
+                    <p class="eyebrow">Risks & Coordination</p>
+                    <h2>风险与需协调事项</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">09 / 风险与需协调事项</span>
+                        <h2>需要关注的风险点</h2>
+                    </div>
+                    <ul class="risk-list">
+                        <li>
+                            <span class="risk-level level-medium">medium</span>
+                            <p>真实数据字段尚未接入，需要后续定义稳定的数据结构。</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">10</span>
+                    <p class="eyebrow">Growth & Sharing</p>
+                    <h2>技术成长 / 知识分享</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">10 / 技术成长</span>
+                        <h2>个人成长与沉淀</h2>
+                    </div>
+                    <div class="growth-grid">
+                        <article class="growth-item">
+                            <i class="fas fa-seedling"></i>
+                            <h3>演示型页面设计</h3>
+                            <p>将周报内容拆成封面、目录、章节和重点页，提升讲述节奏。</p>
+                            <small>收获：页面结构更接近真实 PPT 汇报。</small>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">10 / 知识分享</span>
+                        <h2>相关知识分享</h2>
+                    </div>
+                    <div class="knowledge-list">
+                        <article class="knowledge-item">
+                            <h3>横向 slide track</h3>
+                            <p>通过 translateX 移动整条轨道，配合页码状态管理完成翻页。</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="slide section-title" data-slide>
+                    <span class="section-index">11</span>
+                    <p class="eyebrow">Next Week Plan</p>
+                    <h2>下周计划</h2>
+                </section>
+
+                <section class="slide" data-slide>
+                    <div class="slide-heading">
+                        <span class="eyebrow">11 / 下周计划</span>
+                        <h2>下一阶段工作安排</h2>
+                    </div>
+                    <ol class="plan-list">
+                        <li>继续完善真实数据字段与页面内容映射。</li>
+                        <li>补充导出 PDF 时的分页与打印样式检查。</li>
+                        <li>根据实际汇报场景继续打磨信息密度。</li>
+                    </ol>
+                </section>
+            </div>
+        </main>
+
+        <footer class="deck-controls" aria-label="幻灯片翻页控制">
+            <label class="jump-control">
+                <input type="number" min="1" value="1" data-page-input aria-label="输入页码后按回车跳转">
+            </label>
+            <button class="control-button" type="button" data-prev aria-label="上一页">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="page-grid" data-page-grid aria-label="页码列表"></div>
+            <button class="control-button" type="button" data-next aria-label="下一页">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="page-count" aria-live="polite">
+                <span data-current-page>1</span>/<span data-total-pages>1</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            const deck = document.querySelector('[data-deck]');
+            const track = document.querySelector('[data-slide-track]');
+            const slides = Array.from(document.querySelectorAll('[data-slide]'));
+            const prev = document.querySelector('[data-prev]');
+            const next = document.querySelector('[data-next]');
+            const current = document.querySelector('[data-current-page]');
+            const total = document.querySelector('[data-total-pages]');
+            const progress = document.querySelector('[data-progress-bar]');
+            const pageInput = document.querySelector('[data-page-input]');
+            const pageGrid = document.querySelector('[data-page-grid]');
+            let index = 0;
+
+            function getVisiblePageItems(currentPage, totalPages) {
+                if (totalPages <= 7) {
+                    return Array.from({ length: totalPages }, (_, itemIndex) => itemIndex + 1);
+                }
+
+                if (currentPage <= 4) {
+                    return [1, 2, 3, 4, 5, 'ellipsis', totalPages];
+                }
+
+                if (currentPage >= totalPages - 3) {
+                    return [1, 'ellipsis', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+                }
+
+                return [1, 'ellipsis-start', currentPage - 1, currentPage, currentPage + 1, 'ellipsis-end', totalPages];
+            }
+
+            function renderPageButtons() {
+                const currentPage = index + 1;
+                const totalPages = slides.length;
+                pageGrid.innerHTML = '';
+                getVisiblePageItems(currentPage, totalPages).forEach((item) => {
+                    if (typeof item !== 'number') {
+                        const ellipsis = document.createElement('span');
+                        ellipsis.className = 'page-ellipsis';
+                        ellipsis.textContent = '...';
+                        ellipsis.setAttribute('aria-hidden', 'true');
+                        pageGrid.appendChild(ellipsis);
+                        return;
+                    }
+
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'page-tile';
+                    button.textContent = String(item);
+                    button.classList.toggle('is-current', item === currentPage);
+                    button.setAttribute('aria-current', item === currentPage ? 'page' : 'false');
+                    button.setAttribute('aria-label', `跳转到第 ${item} 页`);
+                    button.addEventListener('click', () => updateSlide(item - 1));
+                    pageGrid.appendChild(button);
+                });
+            }
+
+            function updateSlide(target) {
+                index = Math.max(0, Math.min(target, slides.length - 1));
+                track.style.transform = `translateX(-${index * 100}vw)`;
+                slides.forEach((slide, slideIndex) => {
+                    slide.classList.toggle('is-active', slideIndex === index);
+                });
+                renderPageButtons();
+                current.textContent = String(index + 1);
+                total.textContent = String(slides.length);
+                pageInput.value = String(index + 1);
+                pageInput.max = String(slides.length);
+                progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+                prev.disabled = index === 0;
+                next.disabled = index === slides.length - 1;
+            }
+
+            prev.addEventListener('click', () => updateSlide(index - 1));
+            next.addEventListener('click', () => updateSlide(index + 1));
+            pageInput.addEventListener('keydown', (event) => {
+                if (event.key !== 'Enter') return;
+                updateSlide(Number(pageInput.value) - 1);
+                pageInput.blur();
+            });
+            window.addEventListener('keydown', (event) => {
+                if (document.activeElement === pageInput) return;
+                if (event.key === 'ArrowLeft' || event.key === 'PageUp') updateSlide(index - 1);
+                if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') updateSlide(index + 1);
+            });
+
+            let touchStart = 0;
+            deck.addEventListener('touchstart', (event) => {
+                touchStart = event.changedTouches[0].clientX;
+            }, { passive: true });
+            deck.addEventListener('touchend', (event) => {
+                const delta = event.changedTouches[0].clientX - touchStart;
+                if (Math.abs(delta) > 50) updateSlide(index + (delta < 0 ? 1 : -1));
+            }, { passive: true });
+
+            updateSlide(0);
+        })();
+    </script>
+</body>
+</html>
