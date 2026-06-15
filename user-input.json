@@ -1,0 +1,75 @@
+{
+  "project_name": "weekly-report-gxp",
+  "reporter": "GXP",
+  "summary": "本周围绕周报生成 Skill 的可用性进行完善，重点完成数据源接入、人员归因、会议纪要解析、中文提交类型兼容，并开始优化开发进展的分类展示体验。",
+  "problems": [
+    {
+      "title": "执行过程中出现中文乱码",
+      "description": "在 Windows PowerShell 中，子进程输出的中文路径偶尔按本地编码显示，导致终端里看到乱码。",
+      "type": "encoding",
+      "solution": "在编排脚本中统一设置 PYTHONIOENCODING=utf-8，并捕获子脚本输出后由主脚本统一打印。",
+      "owner": "GXP"
+    },
+    {
+      "title": "开发进展列表缺少分类视角",
+      "description": "原页面只按单一列表展示功能、修复、任务和其他提交，汇报时不容易快速说明各类工作占比。",
+      "type": "presentation",
+      "solution": "改为按类型统计并提供点击切换，默认展示全部进展。",
+      "owner": "GXP"
+    }
+  ],
+  "growth": [
+    {
+      "category": "Skill 工程化",
+      "content": "将周报生成拆成采集、解析、聚合、渲染几个稳定脚本，降低后续修改成本。",
+      "impact": "后续可以单独增强某个数据源，不需要重写整条流水线。",
+      "owner": "GXP"
+    },
+    {
+      "category": "数据归因设计",
+      "content": "通过 members.json 将 Git author、邮箱和 @提及统一映射到人员。",
+      "impact": "为后续多人周报和个人周报过滤打下基础。",
+      "owner": "GXP"
+    }
+  ],
+  "knowledge": [
+    {
+      "title": "Conventional Commits 与中文别名兼容",
+      "content": "提交类型可以使用 feat/fix/docs，也可以使用新增/bug/文档等中文别名，脚本内部统一归一化。",
+      "resource": "references/input-formats.md",
+      "owner": "GXP"
+    },
+    {
+      "title": "会议纪要 Action Items 的周报价值",
+      "content": "技术人员的工作不只有代码提交，会议结论和行动项能补足协作推进过程。",
+      "resource": "",
+      "owner": "GXP"
+    }
+  ],
+  "risks": [
+    {
+      "level": "medium",
+      "content": "当前假数据能覆盖展示，但真实项目接入后仍需要继续验证不同 Markdown 写法。",
+      "owner": "GXP"
+    },
+    {
+      "level": "low",
+      "content": "部分历史提交未使用规范前缀，分类统计可能暂时偏向 other。",
+      "owner": "GXP"
+    }
+  ],
+  "next_plans": [
+    {
+      "content": "继续完善开发进展分类 Tab 的交互和视觉样式。",
+      "owner": "GXP"
+    },
+    {
+      "content": "补充更多会议纪要和任务清单解析测试样例。",
+      "owner": "GXP"
+    },
+    {
+      "content": "用当前项目真实 Git 提交生成一版 GXP 周报并检查展示效果。",
+      "owner": "GXP"
+    }
+  ]
+}

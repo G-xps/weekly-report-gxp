@@ -11,6 +11,24 @@ from pathlib import Path
 from typing import Any
 
 
+TYPE_LABELS = {
+    "all": "全部",
+    "feature": "新增",
+    "feat": "新增",
+    "fix": "修复",
+    "todo": "任务",
+    "refactor": "重构",
+    "perf": "优化",
+    "docs": "文档",
+    "style": "代码",
+    "test": "测试",
+    "chore": "运维",
+    "build": "构建",
+    "ci": "CI/CD",
+    "other": "其他",
+}
+
+
 def esc(value: Any) -> str:
     return html.escape(str(value or ""), quote=True)
 
@@ -24,8 +42,18 @@ def item_type_icon(item_type: str) -> str:
         "refactor": "fa-code-branch",
         "perf": "fa-gauge-high",
         "docs": "fa-file-lines",
+        "style": "fa-code",
         "test": "fa-vial",
+        "chore": "fa-screwdriver-wrench",
+        "build": "fa-box-open",
+        "ci": "fa-gears",
+        "other": "fa-circle-dot",
     }.get(item_type, "fa-circle-dot")
+
+
+def normalize_progress_type(item_type: str) -> str:
+    item_type = str(item_type or "other")
+    return "feature" if item_type == "feat" else item_type
 
 
 def slide(content: str, extra_class: str = "") -> str:
@@ -51,17 +79,34 @@ def empty_item(text: str) -> str:
 def render_progress(items: list[dict]) -> str:
     if not items:
         return empty_item("暂无自动提取到的开发进展。")
+    normalized_items = [{**item, "type": normalize_progress_type(item.get("type", "other"))} for item in items]
+    order = ["feature", "fix", "todo", "refactor", "perf", "docs", "style", "test", "chore", "build", "ci", "other"]
+    counts = {"all": len(normalized_items)}
+    for item in normalized_items:
+        item_type = item.get("type", "other")
+        counts[item_type] = counts.get(item_type, 0) + 1
+    filters = ["all"] + [item_type for item_type in order if counts.get(item_type)]
+    tabs = "\n".join(
+        f"""
+        <button class="progress-tab {'is-active' if item_type == 'all' else ''}" type="button" data-progress-filter="{esc(item_type)}">
+            <i class="fas {item_type_icon(item_type)}"></i>
+            <span>{esc(TYPE_LABELS.get(item_type, item_type))}</span>
+            <strong>{counts.get(item_type, 0)}</strong>
+        </button>
+        """
+        for item_type in filters
+    )
     cards = []
-    for item in items[:12]:
+    for item in normalized_items:
         item_type = esc(item.get("type", "todo"))
         status = esc(item.get("status", "completed"))
         owner = item.get("owner", "")
         owner_html = f'<small><i class="fas fa-user-circle"></i>负责人：{esc(owner)}</small>' if owner else ""
         cards.append(
             f"""
-            <article class="report-item {status}">
+            <article class="report-item {status}" data-progress-type="{item_type}">
                 <div class="item-topline">
-                    <span class="item-type type-{item_type}"><i class="fas {item_type_icon(item_type)}"></i>{item_type}</span>
+                    <span class="item-type type-{item_type}"><i class="fas {item_type_icon(item_type)}"></i>{esc(TYPE_LABELS.get(item_type, item_type))}</span>
                     <h3>{esc(item.get("title"))}</h3>
                 </div>
                 <p>{esc(item.get("description") or item.get("content"))}</p>
@@ -69,7 +114,15 @@ def render_progress(items: list[dict]) -> str:
             </article>
             """
         )
-    return "\n".join(cards)
+    return f"""
+    <div class="progress-tabs" data-progress-tabs>
+        {tabs}
+    </div>
+    <div class="progress-filter-summary" data-progress-summary>当前展示全部 {counts['all']} 项</div>
+    <div class="item-list progress-filter-list" data-progress-list>
+        {''.join(cards)}
+    </div>
+    """
 
 
 def render_tasks(tasks: list[dict]) -> str:
@@ -303,7 +356,7 @@ def render_html(data: dict) -> str:
             """
         ),
         section_title("04", "Development Progress", "本周开发进展"),
-        slide(f'<div class="slide-heading"><span class="eyebrow">04 / 开发进展</span><h2>功能、修复与待办推进</h2></div><div class="item-list">{render_progress(all_progress)}</div>'),
+        slide(f'<div class="slide-heading"><span class="eyebrow">04 / 开发进展</span><h2>功能、修复与待办推进</h2></div>{render_progress(all_progress)}'),
         section_title("05", "Task Completion", "任务完成情况"),
         slide(f'<div class="slide-heading"><span class="eyebrow">05 / 任务完成情况</span><h2>任务清单</h2></div><div class="item-list">{render_tasks(all_tasks)}</div>'),
         section_title("06", "Meetings & Action Items", "会议纪要与 Action Items"),
@@ -372,6 +425,28 @@ def render_html(data: dict) -> str:
                 prev.disabled = index === 0;
                 next.disabled = index === slides.length - 1;
             }
+            function setupProgressFilters() {
+                const tabs = Array.from(document.querySelectorAll('[data-progress-filter]'));
+                const cards = Array.from(document.querySelectorAll('[data-progress-type]'));
+                const summary = document.querySelector('[data-progress-summary]');
+                if (!tabs.length || !cards.length) return;
+                tabs.forEach((tab) => {
+                    tab.addEventListener('click', () => {
+                        const filter = tab.dataset.progressFilter;
+                        let visibleCount = 0;
+                        cards.forEach((card) => {
+                            const visible = filter === 'all' || card.dataset.progressType === filter;
+                            card.hidden = !visible;
+                            if (visible) visibleCount += 1;
+                        });
+                        tabs.forEach((item) => item.classList.toggle('is-active', item === tab));
+                        if (summary) {
+                            const label = tab.querySelector('span')?.textContent || filter;
+                            summary.textContent = `当前展示${label} ${visibleCount} 项`;
+                        }
+                    });
+                });
+            }
             prev.addEventListener('click', () => updateSlide(index - 1));
             next.addEventListener('click', () => updateSlide(index + 1));
             pageInput.addEventListener('keydown', (event) => {
@@ -390,6 +465,7 @@ def render_html(data: dict) -> str:
                 const delta = event.changedTouches[0].clientX - touchStart;
                 if (Math.abs(delta) > 50) updateSlide(index + (delta < 0 ? 1 : -1));
             }, { passive: true });
+            setupProgressFilters();
             updateSlide(0);
         })();
     </script>

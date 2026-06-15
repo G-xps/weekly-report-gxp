@@ -45,6 +45,20 @@ def run_json(args: list[str]) -> dict:
     return json.loads(result.stdout)
 
 
+def run_command(args: list[str]) -> None:
+    env = dict(os.environ)
+    env["PYTHONIOENCODING"] = "utf-8"
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    subprocess.run(
+        [sys.executable, *args],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        env=env,
+        check=True,
+    )
+
+
 def write_json(path: Path, data: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -60,7 +74,6 @@ def main() -> None:
     parser.add_argument("--start", default=start_default)
     parser.add_argument("--end", default=end_default)
     parser.add_argument("--project-name")
-    parser.add_argument("--pdf", action="store_true")
     args = parser.parse_args()
 
     project_dir = Path(args.project_dir).resolve()
@@ -143,26 +156,16 @@ def main() -> None:
 
     target = "、".join(report_data.get("target_members", [])) if report_data.get("target_members") else "team"
     html_path = output_dir / f"weekly-report-{safe_name(target)}-{args.end}.html"
-    subprocess.run(
+    run_command(
         [
-            sys.executable,
             str(SCRIPT_DIR / "render_report.py"),
             str(report_data_path),
             "--output",
             str(html_path),
             "--assets-dir",
             str(SKILL_DIR / "assets"),
-        ],
-        env={**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONDONTWRITEBYTECODE": "1"},
-        check=True,
+        ]
     )
-
-    if args.pdf:
-        subprocess.run(
-            [sys.executable, str(SCRIPT_DIR / "export_pdf.py"), str(html_path)],
-            env={**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONDONTWRITEBYTECODE": "1"},
-            check=True,
-        )
 
     print(json.dumps({"report_data": str(report_data_path), "html": str(html_path)}, ensure_ascii=False, indent=2))
 

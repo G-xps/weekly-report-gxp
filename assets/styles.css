@@ -466,6 +466,111 @@ h1 {
     background: var(--violet);
 }
 
+.type-refactor {
+    background: #0f766e;
+}
+
+.type-perf {
+    background: #db2777;
+}
+
+.type-docs {
+    background: #0891b2;
+}
+
+.type-style {
+    background: #475569;
+}
+
+.type-test {
+    background: #65a30d;
+}
+
+.type-chore {
+    background: #9333ea;
+}
+
+.type-build {
+    background: #ea580c;
+}
+
+.type-ci {
+    background: #0369a1;
+}
+
+.type-other {
+    background: #64748b;
+}
+
+.progress-tabs {
+    width: min(1080px, 82vw);
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 2px 8px;
+}
+
+.progress-tab {
+    flex: 0 0 auto;
+    min-width: 96px;
+    min-height: 42px;
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--muted);
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(23, 32, 51, 0.05);
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.progress-tab:hover,
+.progress-tab.is-active {
+    border-color: var(--green);
+    color: var(--green-dark);
+    background: var(--green-soft);
+    transform: translateY(-1px);
+}
+
+.progress-tab strong {
+    min-width: 24px;
+    height: 22px;
+    padding: 0 7px;
+    border-radius: 999px;
+    color: #fff;
+    background: var(--green);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.progress-filter-summary {
+    width: min(1080px, 82vw);
+    margin: 0 auto 12px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.progress-filter-list {
+    margin-top: 0;
+    max-height: 42vh;
+    overflow: auto;
+}
+
+.progress-filter-list [hidden] {
+    display: none !important;
+}
+
 .problem-type {
     background: var(--amber);
 }
@@ -837,6 +942,8 @@ h1 {
     .growth-grid,
     .knowledge-list,
     .item-list,
+    .progress-tabs,
+    .progress-filter-summary,
     .risk-list,
     .plan-list {
         width: min(100%, calc(100vw - 48px));

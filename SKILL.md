@@ -1,6 +1,6 @@
 ---
 name: weekly-report-gxp
-description: "Generate developer weekly reports for one person or a team from git commits, todo/issues, meeting notes, and user-provided report content. Use when the user asks to create a weekly report, specify a member such as 小明, summarize coding work plus meetings, or export a polished HTML/PDF weekly report."
+description: "Generate developer weekly reports for one person or a team from git commits, todo/issues, meeting notes, and user-provided report content. Use when the user asks to create a weekly report, specify a member such as GXP, summarize coding work plus meetings, or export a polished HTML weekly report."
 ---
 
 # Weekly Report GXP
@@ -18,7 +18,6 @@ Generate developer weekly reports with member attribution. Prefer the determinis
    - Manual content with `scripts/parse_user_content.py`.
 4. Aggregate with `scripts/aggregate_report_data.py`.
 5. Render HTML with `scripts/render_report.py` using `assets/styles.css`.
-6. Export PDF with `scripts/export_pdf.py` when requested or expected. If Chrome is unavailable, provide the generated HTML and manual print instructions.
 
 ## Inputs
 
@@ -35,10 +34,10 @@ Write generated files under a user-specified output directory, or `weekly-report
 
 - `report-data.json`
 - `weekly-report-<member-or-team>-<end-date>.html`
-- Optional `weekly-report-<member-or-team>-<end-date>.pdf`
 
 ## Notes
 
 - If the target project is not a git repository, continue with tasks, meetings, and manual content.
 - Do not invent accomplishments. Use empty-state text when a section has no data.
 - Preserve the user's Chinese names and wording in report content.
+- This skill outputs HTML only. Do not run a PDF export step.
