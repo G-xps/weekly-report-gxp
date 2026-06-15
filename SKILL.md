@@ -40,4 +40,4 @@ Write generated files under a user-specified output directory, or `weekly-report
 - If the target project is not a git repository, continue with tasks, meetings, and manual content.
 - Do not invent accomplishments. Use empty-state text when a section has no data.
 - Preserve the user's Chinese names and wording in report content.
-- This skill outputs HTML only. Do not run a PDF export step.
+- This skill outputs HTML only. 
